@@ -50,6 +50,10 @@ header {
   @include outer-container;
 }
 
+.tools-title {
+  text-align: center;
+}
+
 .input-form {
   @include outer-container;
   @include span-columns(8);
@@ -69,4 +73,15 @@ header {
 .new-goal-container {
   display: block;
   border: 1px solid gray;
+}
+
+.goals-view-container {
+  @include outer-container;
+  @include span-columns(8);
+  @include shift(1);
+  border: 1px solid red;
+}
+
+.overall-goal {
+  border: 1px solid green;
 }

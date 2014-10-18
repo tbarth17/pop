@@ -15,6 +15,6 @@ Pop.GoalsCreateRoute = Ember.Route.extend({
 
 Pop.GoalsViewRoute = Ember.Route.extend({
   model: function() {
-    return this.store.find('goal', '-JZZAE9Y5jppFyyUSrS9');
+    return this.store.find('goal', '-JZ_-Pi3bfKc8-JrYI9u');
   }
 });

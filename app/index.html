@@ -35,7 +35,7 @@
           </ul>
         </div>
 
-          <h1>Mentor Tools</h1>
+          <h1 class='tools-title'>Mentor Tools</h1>
             <div class='content-container'>
               {{outlet}}
             </div>
@@ -49,7 +49,13 @@
           <form>
             <div class='name-overall-goal-container'>
               {{input type="text" value=name placeholder='Name'}}
-              {{textarea value=endGoal cols="30" rows="6" placeholder='Overall Goal'}}
+              {{textarea value=backStory cols="30" rows="6" placeholder="Enter client's backstory"}}
+              {{textarea value=skillSet cols="30" rows="6" placeholder="Enter client's skillset"}}
+              {{textarea value=passion cols="30" rows="6" placeholder="Enter client's passion"}}
+              {{textarea value=marketNeeds cols="30" rows="6" placeholder='Enter market needs'}}
+
+
+
             </div>
 
                   <div class='short-goal-input'>
@@ -65,7 +71,7 @@
                         {{#each shortGoal in step.shortGoals}}
 
                             {{input type='text' value=shortGoal.content placeholder='Requirements'}}
-                            <button {{action "addShortGoal"}}>+</button>
+                            <button {{action 'addShortGoal'}}>+</button>
 
                         {{/each}}
                       {{textarea value=step.selectedGoalNotes cols='30' rows='6' placeholder='Monthly goal notes'}}
@@ -82,30 +88,42 @@
     </script>
 
     <script type='text/x-handlebars' data-template-name='goalsView'>
-      <h2>{{model.name}}'s Goals</h2>
-        <div class='overall-goal'>
-          <h4>Long-term Goal:</h4>
-          <p>{{model.endGoal}}</p>
-        </div>
-        <div class='monthly-goals-container'>
-          <h4>Monthly Goals:</h4>
-          {{#each step in model.steps}}
-            <div class='monthly-goals'>
-              <h4>
-                {{step.monthlyGoalTitle}}
-              </h4>
-              <h5>
-                {{step.monthlyGoalNotes}}
-              </h5>
-                {{#each shortGoal in step.shortGoals}}
-                  <li>
-                    {{shortGoal.content}}
-                    {{input type='checkbox' name='isComplete' checked=isComplete}}
-                  </li>
-                {{/each}}
-            </div>
-          {{/each}}
-        </div>
+      <div class='goals-view-container'>
+        <h2>{{model.name}}'s Goals</h2>
+          <div class='overall-goal'>
+            <h4>{{model.name}}'s story:</h4>
+            <p>{{model.backStory}}</p>
+            <h4>{{model.name}}'s skillset:</h4>
+            <p>{{model.skillSet}}</p>
+            <h4>{{model.name}}'s passion:</h4>
+            <p>{{model.passion}}</p>
+            <h4>{{model.name}}'s market needs:</h4>
+            <p>{{model.marketNeeds}}</p>
+          </div>
+          <div class='monthly-goals-container'>
+            <form action="">
+              {{#each step in model.steps}}
+                <div class='monthly-goals'>
+                  <h4>
+                    {{step.selectedGoalTitle}}
+                  </h4>
+                  <h5>
+                    {{step.selectedGoalNotes}}
+                  </h5>
+                    {{#each shortGoal in step.shortGoals}}
+                      <li>
+                        {{shortGoal.content}}
+                        {{input type='checkbox' class='toggle' value='isComplete'}}
+                      </li>
+                    {{/each}}
+                </div>
+              {{/each}}
+              <button {{action 'updateRequirements'}}>Submit</button>
+            </form>
+
+          </div>
+      </div>
+
 
     </script>
 
@@ -127,6 +145,7 @@
         <script src="js/models/step.js"></script>
         <script src="js/controllers/goals_create_controller.js"></script>
         <script src="js/controllers/step_controller.js"></script>
+        <script src="js/controllers/goals_view_controller.js"></script>
         <script src="js/router.js"></script>
         <!-- endbuild -->
 </body>

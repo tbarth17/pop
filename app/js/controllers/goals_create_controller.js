@@ -2,8 +2,10 @@ Pop.GoalsCreateController = Ember.Controller.extend({
   needs: ['application'],
 
   goalTitles: [
-  {label: 'stuff', value: 'stuff'},
-  {label: 'button', value: 'button'}
+  {label: 'Skill Building', value: 'Skill Building'},
+  {label: 'Brainstorming', value: 'Brainstorming'},
+  {label: 'Prototyping', value: 'Prototyping'},
+  {label: 'Customer Development', value: 'Customer Development'}
   ],
 
   actions: {
@@ -21,12 +23,18 @@ Pop.GoalsCreateController = Ember.Controller.extend({
       console.log(shortTermGoal);
       var goal = this.store.createRecord("goal", {
         name: this.get('name'),
-        endGoal: this.get('endGoal')
+        skillSet: this.get('skillSet'),
+        backStory: this.get('backStory'),
+        passion: this.get('passion'),
+        marketNeeds: this.get('marketNeeds')
       });
       goal.get('steps').addObjects( this.get('steps') );
       goal.save();
       this.set('name', '');
-      this.set('endGoal', '');
+      this.set('backStory', '');
+      this.set('skillSet', '');
+      this.set('passion', '');
+      this.set('marketNeeds', '');
       var shortGoal = this.store.createRecord('shortTermGoal', {});
       var step = this.store.createRecord('step', {});
       step.get('shortGoals').addObject(shortGoal);
