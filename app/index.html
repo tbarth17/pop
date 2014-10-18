@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>pop</title>
+    <title>PoP</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -32,7 +32,7 @@
         <div class='sidebar'>
           <ul class='sidebar-list'>
             <li>{{#link-to 'goalsCreate'}}Create Goals Record{{/link-to}}</li>
-            <li>{{#link-to 'goalsView'}}View Progress Form{{/link-to}}</li>
+            <li>{{#link-to 'clientsView'}}View Clients{{/link-to}}</li>
 
           </ul>
         </div>
@@ -87,7 +87,7 @@
 
     </script>
 
-    <script type='text/x-handlebars' data-template-name='goalsView'>
+    <script type='text/x-handlebars' data-template-name='goals/view'>
       <div class='goals-view-container'>
         <h2>{{model.name}}'s Goals</h2>
           <div class='overall-goal'>
@@ -123,8 +123,16 @@
 
           </div>
       </div>
+    </script>
 
+    <script type='text/x-handlebars' data-template-name='clientsView'>
 
+      <h2>Client Records</h2>
+      {{#each}}
+        {{#link-to 'goals.view' this}}
+          {{name}}
+        {{/link-to}}
+      {{/each}}
     </script>
 
     <!-- build:js scripts/vendor.js -->

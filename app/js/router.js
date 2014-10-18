@@ -1,6 +1,9 @@
 Pop.Router.map(function() {
   this.route('goalsCreate', {path: '/goalForm'});
-  this.route('goalsView', {path: '/viewGoals'});
+  this.resource('goals', function(){
+    this.route('view', {path: ':goal_id'});
+  });
+  this.route('clientsView', {path: '/clientsView'});
 });
 
 Pop.GoalsCreateRoute = Ember.Route.extend({
@@ -14,7 +17,13 @@ Pop.GoalsCreateRoute = Ember.Route.extend({
 });
 
 Pop.GoalsViewRoute = Ember.Route.extend({
+  model: function(params) {
+    return this.store.find('goal', params.goal_id);
+  }
+});
+
+Pop.ClientsViewRoute = Ember.Route.extend({
   model: function() {
-    return this.store.find('goal', '-JZ_-Pi3bfKc8-JrYI9u');
+    return this.store.find('goal');
   }
 });
