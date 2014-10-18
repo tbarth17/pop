@@ -55,6 +55,10 @@ header {
   @include outer-container;
 }
 
+.tools-title {
+  text-align: center;
+}
+
 .input-form {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -134,4 +138,15 @@ header {
     font-size: 1.3em;
     color: HSLA(189, 90%, 30%, 1);
   }
+}
+
+.goals-view-container {
+  @include outer-container;
+  @include span-columns(8);
+  @include shift(1);
+  border: 1px solid red;
+}
+
+.overall-goal {
+  border: 1px solid green;
 }
