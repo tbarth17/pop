@@ -65,7 +65,7 @@
                         {{#each shortGoal in step.shortGoals}}
 
                             {{input type='text' value=shortGoal.content placeholder='Requirements'}}
-                            <button {{action "addShortGoal"}}>+</button>
+                            <button class='addRequirement' {{action "addShortGoal"}}>+</button>
 
                         {{/each}}
                       {{textarea value=step.selectedGoalNotes cols='30' rows='6' placeholder='Monthly goal notes'}}
