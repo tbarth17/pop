@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>pop</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+
+    <script type='text/x-handlebars' data-template-name='application'>
+      <header>
+        <h1>People Of Promise</h1>
+      </header>
+
+      <div class='wrapper'>
+        <div class='sidebar'>
+          <ul class='sidebar-list'>
+            <li>View Progress Form</li>
+          </ul>
+        </div>
+
+          <h1>Mentor Tools</h1>
+            <div class='content-container'>
+              {{outlet}}
+            </div>
+      </div>
+
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='goalsCreate'>
+      <h2>Input Goals</h2>
+        <div class='input-form'>
+          <form>
+            <div class='name-overall-goal-container'>
+              {{input type="text" value=name placeholder='Name'}}
+              {{textarea value=endGoal cols="30" rows="6" placeholder='Overall Goal'}}
+            </div>
+
+                <h5>Short Term Goals</h5>
+                  <div class='short-goal-input'>
+                    {{#each step in steps itemController='step'}}
+                        {{input type='text' value=step.monthlyGoalTitle placeholder='Monthly goal title'}}
+                          {{#each shortGoal in step.shortGoals}}
+
+                              {{input type='text' value=shortGoal.content placeholder='Add a short term goal here'}}
+                              <button {{action "addShortGoal"}}>+</button>
+
+                          {{/each}}
+                        {{textarea value=step.monthlyGoalNotes cols='30' rows='6' placeholder='Monthly goal notes'}}
+                      <button {{action 'addStep'}}>Add New Goal</button>
+                    {{/each}}
+                  </div>
+
+            <button {{action 'createGoal'}}>Submit</button>
+          </form>
+        </div>
+
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="js/application.js"></script>
+        <script src="js/models/goal.js"></script>
+        <script src="js/models/short_term_goal.js"></script>
+        <script src="js/models/step.js"></script>
+        <script src="js/controllers/goals_create_controller.js"></script>
+        <script src="js/controllers/step_controller.js"></script>
+        <script src="js/router.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
