@@ -52,24 +52,26 @@
               {{textarea value=endGoal cols="30" rows="6" placeholder='Overall Goal'}}
             </div>
 
-                <h5>Short Term Goals</h5>
                   <div class='short-goal-input'>
                     {{#each step in steps itemController='step'}}
-                            {{view Ember.Select
-                              content=goalTitles
-                              optionValuePath='content.value'
-                              optionLabelPath='content.label'
-                              value=step.selectedGoalTitle
-                              prompt='Select goal'
-                              }}
-                          {{#each shortGoal in step.shortGoals}}
+                      <div class='new-goal-container'>
+                        {{view Ember.Select
+                          content=goalTitles
+                          optionValuePath='content.value'
+                          optionLabelPath='content.label'
+                          value=step.selectedGoalTitle
+                          prompt='Select goal'
+                          }}
+                        {{#each shortGoal in step.shortGoals}}
 
-                              {{input type='text' value=shortGoal.content placeholder='Requirements'}}
-                              <button {{action "addShortGoal"}}>+</button>
+                            {{input type='text' value=shortGoal.content placeholder='Requirements'}}
+                            <button {{action "addShortGoal"}}>+</button>
 
-                          {{/each}}
-                        {{textarea value=step.selectedGoalNotes cols='30' rows='6' placeholder='Monthly goal notes'}}
-                      <button {{action 'addStep'}}>Add New Goal</button>
+                        {{/each}}
+                      {{textarea value=step.selectedGoalNotes cols='30' rows='6' placeholder='Monthly goal notes'}}
+                    <button {{action 'addStep'}}>Add New Goal</button>
+                      </div>
+
                     {{/each}}
                   </div>
 
