@@ -98,7 +98,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
   ]).on('change', $.livereload.changed);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('bower.json', ['wiredep']);
+  // gulp.watch('bower.json', ['wiredep']);
 });
 
 gulp.task('build', ['html', 'images', 'extras'], function () {
