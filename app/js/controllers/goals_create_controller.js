@@ -1,4 +1,11 @@
 Pop.GoalsCreateController = Ember.Controller.extend({
+  needs: ['application'],
+
+  goalTitles: [
+  {label: 'stuff', value: 'stuff'},
+  {label: 'button', value: 'button'}
+  ],
+
   actions: {
     addStep: function(){
       var shortTermGoal = this.store.createRecord('shortTermGoal', {});

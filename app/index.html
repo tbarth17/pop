@@ -55,20 +55,54 @@
                 <h5>Short Term Goals</h5>
                   <div class='short-goal-input'>
                     {{#each step in steps itemController='step'}}
-                        {{input type='text' value=step.monthlyGoalTitle placeholder='Monthly goal title'}}
+                            {{view Ember.Select
+                              content=goalTitles
+                              optionValuePath='content.value'
+                              optionLabelPath='content.label'
+                              value=step.selectedGoalTitle
+                              prompt='Select goal'
+                              }}
                           {{#each shortGoal in step.shortGoals}}
 
-                              {{input type='text' value=shortGoal.content placeholder='Add a short term goal here'}}
+                              {{input type='text' value=shortGoal.content placeholder='Requirements'}}
                               <button {{action "addShortGoal"}}>+</button>
 
                           {{/each}}
-                        {{textarea value=step.monthlyGoalNotes cols='30' rows='6' placeholder='Monthly goal notes'}}
+                        {{textarea value=step.selectedGoalNotes cols='30' rows='6' placeholder='Monthly goal notes'}}
                       <button {{action 'addStep'}}>Add New Goal</button>
                     {{/each}}
                   </div>
 
             <button {{action 'createGoal'}}>Submit</button>
           </form>
+        </div>
+
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='goalsView'>
+      <h2>{{model.name}}'s Goals</h2>
+        <div class='overall-goal'>
+          <h4>Long-term Goal:</h4>
+          <p>{{model.endGoal}}</p>
+        </div>
+        <div class='monthly-goals-container'>
+          <h4>Monthly Goals:</h4>
+          {{#each step in model.steps}}
+            <div class='monthly-goals'>
+              <h4>
+                {{step.monthlyGoalTitle}}
+              </h4>
+              <h5>
+                {{step.monthlyGoalNotes}}
+              </h5>
+                {{#each shortGoal in step.shortGoals}}
+                  <li>
+                    {{shortGoal.content}}
+                    {{input type='checkbox' name='isComplete' checked=isComplete}}
+                  </li>
+                {{/each}}
+            </div>
+          {{/each}}
         </div>
 
     </script>
