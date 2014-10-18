@@ -11,7 +11,7 @@ body {
 
 header {
   height: 200px;
-  background: #087e92;
+  background: HSLA(189, 90%, 30%, 1);
   padding: 75px;
 
   h1 {
@@ -67,27 +67,71 @@ header {
   input,
   textarea {
     @include span-columns(10);
-    margin: 5px;
-    margin-left: 10px;
+    @include shift(1);
+    margin-bottom: 10px;
     font-size: 1.3em;
   }
 }
 
 .name-overall-goal-container {
   @include span-columns(9);
-  border: 1px solid red;
+  background-color: HSLA(0, 0%, 80%, 1);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .short-goal-input {
   @include span-columns(9);
-  border: 1px solid red;
+  background: HSLA(0, 0%, 80%, 1);
+  border-radius: 5px;
 }
 
 .new-goal-container {
-  display: block;
-  border: 1px solid gray;
 
   .addRequirement {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     display: inline-block;
+    @include shift(1);
+    background-color: white;
+    color: HSLA(189, 90%, 30%, 1);
+    border-radius: 5px;
+    font-size: 1.2em;
+  }
+
+  .selectGoal {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    @include span-columns(10);
+    @include shift(1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    color: HSLA(0, 0%, 66%, 1);
+  }
+
+  .newGoalButton {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius:5px;
+    background-color: white;
+    margin: 10px;
+    font-size: 1.3em;
+    color: HSLA(189, 90%, 30%, 1);
+  }
+
+  .submitButton {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius:5px;
+    background-color: white;
+    margin: 10px;
+    font-size: 1.3em;
+    color: HSLA(189, 90%, 30%, 1);
   }
 }
