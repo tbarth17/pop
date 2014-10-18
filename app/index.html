@@ -48,14 +48,12 @@
         <div class='input-form'>
           <form>
             <div class='name-overall-goal-container'>
+
               {{input type="text" value=name placeholder='Name'}}
               {{textarea value=backStory cols="30" rows="6" placeholder="Enter client's backstory"}}
               {{textarea value=skillSet cols="30" rows="6" placeholder="Enter client's skillset"}}
               {{textarea value=passion cols="30" rows="6" placeholder="Enter client's passion"}}
               {{textarea value=marketNeeds cols="30" rows="6" placeholder='Enter market needs'}}
-
-
-
             </div>
 
                   <div class='short-goal-input'>
@@ -67,21 +65,21 @@
                           optionLabelPath='content.label'
                           value=step.selectedGoalTitle
                           prompt='Select goal'
+                          class='selectGoal'
                           }}
                         {{#each shortGoal in step.shortGoals}}
-
-                            {{input type='text' value=shortGoal.content placeholder='Requirements'}}
-                            <button {{action 'addShortGoal'}}>+</button>
+                            {{input type='text' value=shortGoal.content placeholder='Task'}}
 
                         {{/each}}
-                      {{textarea value=step.selectedGoalNotes cols='30' rows='6' placeholder='Monthly goal notes'}}
-                    <button {{action 'addStep'}}>Add New Goal</button>
+                      {{textarea value=step.selectedGoalNotes cols='30' rows='6' placeholder='Task Notes'}}
+                      <button class='addRequirement' {{action "addShortGoal"}}>Add Task</button>
+                    <button class='newGoalButton' {{action 'addStep'}}>Add New Goal</button>
                       </div>
 
                     {{/each}}
                   </div>
 
-            <button {{action 'createGoal'}}>Submit</button>
+            <button class='submitButton' {{action 'createGoal'}}>Submit</button>
           </form>
         </div>
 
