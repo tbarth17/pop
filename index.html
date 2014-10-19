@@ -1,0 +1,162 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>noDrop</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <script type='text/x-handlebars' data-template-name='application'>
+      <header>
+        {{#link-to 'index'}}
+          <img class='logo' src = '../images/nodropwhitefinal.png'/>
+        {{/link-to}}
+      </header>
+
+      <div class='wrapper'>
+      <button {{action "logOut"}} class='logOut'>Log out</button>
+        <div class='sidebar'>
+          <ul class='sidebar-list'>
+            <li>{{#link-to 'goalsCreate'}}New Client Record{{/link-to}}</li>
+            <li>{{#link-to 'clientsView'}}View Clients{{/link-to}}</li>
+          </ul>
+        </div>
+
+          <h1 class='tools-title'>Mentor Tools</h1>
+            <div class='content-container'>
+              {{outlet}}
+            </div>
+      </div>
+
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='goalsCreate'>
+        <div class='input-form'>
+          <form>
+            <div class='name-overall-goal-container'>
+              <h3 class='sectioninfo'>Client Info</h3>
+              {{input type="text" value=name placeholder='Name'}}
+              {{textarea value=backStory cols="30" rows="3" placeholder="Enter client's backstory"}}
+              {{textarea value=skillSet cols="30" rows="3" placeholder="Enter client's skillset"}}
+              {{textarea value=passion cols="30" rows="3" placeholder="Enter client's passion"}}
+              {{textarea value=marketNeeds cols="30" rows="3" placeholder='Enter market opportunity'}}
+            </div>
+
+                  <div class='short-goal-input'>
+                    <h3 class='sectioninfo'>Client Goals</h3>
+
+                    {{#each step in steps itemController='step'}}
+                      <div class='new-goal-container'>
+                        {{view Ember.Select
+                          content=goalTitles
+                          optionValuePath='content.value'
+                          optionLabelPath='content.label'
+                          value=step.selectedGoalTitle
+                          prompt='Select phase'
+                          class='select-goal'
+                          }}
+                        {{#each shortGoal in step.shortGoals}}
+                            {{input type='text' value=shortGoal.content placeholder='Task title'}}
+                            <div class='deadline-div'><label class='deadline'>Task Deadline: </label>
+                            {{input class='date' type='date' value=shortGoal.date}}
+                            </div>
+                        {{/each}}
+                        {{textarea value=step.selectedGoalNotes cols='30' rows='3' placeholder='Task Notes'}}
+                      </div>
+                      <div class='task-buttons'>
+                      <button class='add-requirement' {{action "addShortGoal"}}>Add Task</button>
+                      <button class='new-goal-button' {{action 'addStep'}}>Add New Goal</button>
+                      </div>
+                    {{/each}}
+
+            <button class='submitButton' {{action 'createGoal'}}>Submit</button>
+          </form>
+        </div>
+
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='goals/view'>
+      <div class='goals-view-container'>
+        <h2 class='client-view-header'>{{model.name}}'s Goals</h2>
+          <div class='overall-goal'>
+            <h4>{{model.name}}'s story:</h4>
+            <p>{{model.backStory}}</p>
+            <h4>{{model.name}}'s skillset:</h4>
+            <p>{{model.skillSet}}</p>
+            <h4>{{model.name}}'s passion:</h4>
+            <p>{{model.passion}}</p>
+            <h4>{{model.name}}'s market opportunity:</h4>
+            <p>{{model.marketNeeds}}</p>
+          </div>
+          <div class='monthly-goals-container'>
+            <form action="">
+              {{#each step in model.steps}}
+                <div class='monthly-goals'>
+                  <h3>
+                                      {{step.selectedGoalTitle}}
+
+                    {{input type='checkbox' class='toggle' value='isComplete'}}
+                  </h3>
+                  <h4>
+                    Notes
+                  </h4>
+                  <h5 class='goal-notes'>
+                    {{step.selectedGoalNotes}}
+                  </h5>
+                  <h4>
+                    Tasks
+                  </h4>
+                    {{#each shortGoal in step.shortGoals}}
+                      <li>
+                        {{input type='checkbox' class='toggle' value='isComplete'}}
+                        {{shortGoal.content}}
+                      </li>
+                      <li class='due-date'>
+                        Due date: {{dueDate}}
+                      </li>
+                    {{/each}}
+                </div>
+              {{/each}}
+              <button class='buttontown' {{action 'updateRequirements'}}>Submit</button>
+            </form>
+
+          </div>
+      </div>
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='clientsView'>
+
+      <h2>Client Records</h2>
+      {{#each}}
+
+        {{#link-to 'goals.view' this class='client-link'}}
+          {{name}}
+        {{/link-to}}
+      {{/each}}
+    </script>
+
+
+    <script type='text/x-handlebars' data-template-name='index'>
+      <form class='login' {{action "login" on="submit"}}>
+            {{input value=email placeholder='Email address' type='text'}}
+            {{input value=pass placeholder='password' type='password'}}
+            {{input class='submit' type='submit'}}
+      </form>
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+    
+    <script src="scripts/vendor.js"></script>
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>
