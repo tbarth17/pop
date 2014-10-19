@@ -69,9 +69,10 @@
                           prompt='Select goal'
                           class='selectGoal'
                           }}
-                        {{input type='date'}}
                         {{#each shortGoal in step.shortGoals}}
                             {{input type='text' value=shortGoal.content placeholder='Task'}}
+                            {{input type='date' value=shortGoal.date}}
+
                         {{/each}}
                       {{textarea value=step.selectedGoalNotes cols='30' rows='6' placeholder='Task Notes'}}
                       <button class='addRequirement' {{action "addShortGoal"}}>Add Task</button>
