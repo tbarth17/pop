@@ -249,14 +249,25 @@ padding: 10px;
 
 .monthly-goals {
   border-bottom: 1px solid RGBA(157, 157, 157, 1);
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 
-  h5 {
+  .goal-notes {
+    margin-top:5px;
+  }
+
+  h4 {
+    margin-bottom: 5px;
+    border-bottom: 1px solid RGBA(157, 157, 157, 1);
   }
 
   li{
     list-style:none;
+  }
 
+  li:nth-child(even){
+    // border-bottom: 1px solid HSLA(0, 0%, 62%, 1);
+    margin-bottom: 20px;
+    padding-left: 20px;
   }
 }
 

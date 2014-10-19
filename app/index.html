@@ -110,13 +110,14 @@
               {{#each step in model.steps}}
                 <div class='monthly-goals'>
                   <h3>
+                                      {{step.selectedGoalTitle}}
+
                     {{input type='checkbox' class='toggle' value='isComplete'}}
-                    {{step.selectedGoalTitle}}
                   </h3>
                   <h4>
                     Notes
                   </h4>
-                  <h5>
+                  <h5 class='goal-notes'>
                     {{step.selectedGoalNotes}}
                   </h5>
                   <h4>
@@ -126,6 +127,8 @@
                       <li>
                         {{input type='checkbox' class='toggle' value='isComplete'}}
                         {{shortGoal.content}}
+                      </li>
+                      <li class='due-date'>
                         Due date: {{dueDate}}
                       </li>
                     {{/each}}
