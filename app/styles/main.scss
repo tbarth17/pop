@@ -66,10 +66,44 @@ header {
     text-align: center;
   }
 }
-.logOut{
+
+.login {
+  background-color: HSLA(0, 0%, 80%, 1);
+  @include span-columns(6);
+  border-radius:5px;  
+  padding-top:10px;
+  padding-bottom:10px;
+
+  input {
+    display:block;
+    margin: 10px;
+  }
+
+  .submit {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    background-color: white;
+    color: HSLA(189, 90%, 30%, 1);
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+}
+
+.logOut {
   position: absolute;
   right: 10px;
   top: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: white;
+  color: HSLA(189, 90%, 30%, 1);
+  border-radius: 5px;
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
 .sectioninfo {

@@ -9,9 +9,14 @@ Pop.IndexController = Ember.Controller.extend({
                 email: this.get('email'),
                 password: this.get('pass'),
             }, function(err, authData) {
-                console.log(authData.uid);
-                that.set('userID', authData.uid);
-                that.transitionToRoute('clientsView');
+                if(authData){
+                    console.log(authData.uid);
+                    that.set('userID', authData.uid);
+                    that.transitionToRoute('clientsView');
+                }
+                else{
+                    alert(err.message);
+                }
             });
         }
 

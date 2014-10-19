@@ -25,7 +25,9 @@
 
     <script type='text/x-handlebars' data-template-name='application'>
       <header>
-        <img class='logo' src = '../images/POP-logo.png'/>
+        {{#link-to 'index'}}
+          <img class='logo' src = '../images/POP-logo.png'/>
+        {{/link-to}}
       </header>
 
       <div class='wrapper'>
@@ -154,10 +156,10 @@
 
 
     <script type='text/x-handlebars' data-template-name='index'>
-      <form {{action "login" on="submit"}}>
+      <form class='login' {{action "login" on="submit"}}>
             {{input value=email placeholder='Email address' type='text'}}
             {{input value=pass placeholder='password' type='password'}}
-            {{input type='submit'}}
+            {{input class='submit' type='submit'}}
       </form>
     </script>
 
