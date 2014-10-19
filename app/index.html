@@ -20,7 +20,7 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
-  </head>
+  </head> 
   <body>
 
     <script type='text/x-handlebars' data-template-name='application'>
@@ -90,7 +90,7 @@
 
     <script type='text/x-handlebars' data-template-name='goals/view'>
       <div class='goals-view-container'>
-        <h2>{{model.name}}'s Goals</h2>
+        <h2 class='client-view-header'>{{model.name}}'s Goals</h2>
           <div class='overall-goal'>
             <h4>{{model.name}}'s story:</h4>
             <p>{{model.backStory}}</p>
@@ -130,7 +130,7 @@
 
       <h2>Client Records</h2>
       {{#each}}
-        {{#link-to 'goals.view' this}}
+        {{#link-to 'goals.view' this class='client-link'}}
           {{name}}
         {{/link-to}}
       {{/each}}
