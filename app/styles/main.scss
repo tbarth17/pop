@@ -247,12 +247,15 @@ padding: 10px;
 }
 
 .monthly-goals {
+  border-bottom: 1px solid RGBA(157, 157, 157, 1);
+  padding-bottom: 15px;
 
   h5 {
   }
 
   li{
     list-style:none;
+
   }
 }
 
