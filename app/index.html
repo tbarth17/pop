@@ -31,7 +31,7 @@
       <div class='wrapper'>
         <div class='sidebar'>
           <ul class='sidebar-list'>
-            <li>{{#link-to 'goalsCreate'}}Create Goals Record{{/link-to}}</li>
+            <li>{{#link-to 'goalsCreate'}}New Client Record{{/link-to}}</li>
             <li>{{#link-to 'clientsView'}}View Clients{{/link-to}}</li>
           </ul>
         </div>
@@ -71,10 +71,10 @@
                           }}
                         {{#each shortGoal in step.shortGoals}}
                             {{input type='text' value=shortGoal.content placeholder='Task'}}
+                            <label class='deadline'>Deadline: </label>
                             {{input type='date' value=shortGoal.date}}
-
                         {{/each}}
-                      {{textarea value=step.selectedGoalNotes cols='30' rows='6' placeholder='Task Notes'}}
+                      {{textarea value=step.selectedGoalNotes cols='30' rows='3' placeholder='Task Notes'}}
                       <button class='addRequirement' {{action "addShortGoal"}}>Add Task</button>
                     <button class='newGoalButton' {{action 'addStep'}}>Add New Goal</button>
                       </div>

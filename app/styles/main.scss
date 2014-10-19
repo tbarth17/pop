@@ -145,7 +145,6 @@ padding: 10px;
     -moz-appearance: none;
     appearance: none;
     display: inline-block;
-    @include shift(1);
     background-color: white;
     color: HSLA(189, 90%, 30%, 1);
     border-radius: 5px;
@@ -211,6 +210,10 @@ padding: 10px;
     @include shift(0.5);
     @include span-columns(11); 
   }
+}
+
+.deadline {
+  @include shift(1);
 }
 
 .overall-goal {
