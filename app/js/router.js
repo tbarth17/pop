@@ -27,3 +27,11 @@ Pop.ClientsViewRoute = Ember.Route.extend({
     return this.store.find('goal');
   }
 });
+
+Pop.ApplicationRoute = Ember.Route.extend({
+    beforeModel: function() {
+        if (this.controllerFor('application').get('userID')) {
+            this.transitionTo('goals.view');
+        }
+    }
+});
