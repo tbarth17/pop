@@ -29,6 +29,9 @@
       </header>
 
       <div class='wrapper'>
+      {{#unless userID}}
+      <button {{action "logOut"}} class='logOut'>Log out</button>
+      {{/unless}}
         <div class='sidebar'>
           <ul class='sidebar-list'>
             <li>{{#link-to 'goalsCreate'}}Create Goals Record{{/link-to}}</li>
@@ -139,6 +142,15 @@
       {{/each}}
     </script>
 
+
+    <script type='text/x-handlebars' data-template-name='index'>
+      <form {{action "login" on="submit"}}>
+            {{input value=email placeholder='Email address' type='text'}}
+            {{input value=pass placeholder='password' type='password'}}
+            {{input type='submit'}}
+      </form>
+    </script>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
@@ -156,9 +168,11 @@
         <script src="js/models/goal.js"></script>
         <script src="js/models/short_term_goal.js"></script>
         <script src="js/models/step.js"></script>
+        <script src="js/controllers/application_controller.js"></script>
         <script src="js/controllers/goals_create_controller.js"></script>
         <script src="js/controllers/step_controller.js"></script>
         <script src="js/controllers/goals_view_controller.js"></script>
+        <script src="js/controllers/index_controller.js"></script>
         <script src="js/router.js"></script>
         <!-- endbuild -->
 </body>
