@@ -74,7 +74,7 @@ header {
 
 .sectioninfo {
   @include shift(1);
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .goal-info {
@@ -143,6 +143,7 @@ padding: 10px;
 }
 
 .new-goal-container {
+  padding-top:5px;
   margin-top: 0;
   @include outer-container;
   border-bottom: 1px solid RGBA(157, 157, 157, 1);
@@ -281,6 +282,8 @@ padding: 10px;
 }
 
 .deadline-div {
-  input {
-  }
+  @include outer-container;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+
 }

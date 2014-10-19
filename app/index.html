@@ -76,9 +76,9 @@
                             {{input type='text' value=shortGoal.content placeholder='Task title'}}
                             <div class='deadline-div'><label class='deadline'>Task Deadline: </label>
                             {{input class='date' type='date' value=shortGoal.date}}
-                            {{textarea value=step.selectedGoalNotes cols='30' rows='3' placeholder='Task Notes'}}
                             </div>
                         {{/each}}
+                        {{textarea value=step.selectedGoalNotes cols='30' rows='3' placeholder='Task Notes'}}
                       </div>
                       <div class='task-buttons'>
                       <button class='add-requirement' {{action "addShortGoal"}}>Add Task</button>
@@ -113,9 +113,15 @@
                     {{input type='checkbox' class='toggle' value='isComplete'}}
                     {{step.selectedGoalTitle}}
                   </h3>
+                  <h4>
+                    Notes
+                  </h4>
                   <h5>
                     {{step.selectedGoalNotes}}
                   </h5>
+                  <h4>
+                    Tasks
+                  </h4>
                     {{#each shortGoal in step.shortGoals}}
                       <li>
                         {{input type='checkbox' class='toggle' value='isComplete'}}
