@@ -31,9 +31,7 @@
       </header>
 
       <div class='wrapper'>
-      {{#unless userID}}
       <button {{action "logOut"}} class='logOut'>Log out</button>
-      {{/unless}}
         <div class='sidebar'>
           <ul class='sidebar-list'>
             <li>{{#link-to 'goalsCreate'}}New Client Record{{/link-to}}</li>
