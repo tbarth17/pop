@@ -20,7 +20,7 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
-  </head> 
+  </head>
   <body>
 
     <script type='text/x-handlebars' data-template-name='application'>
@@ -107,6 +107,7 @@
                 <div class='monthly-goals'>
                   <h4>
                     {{step.selectedGoalTitle}}
+                    {{input type='checkbox' class='toggle' value='isComplete'}}
                   </h4>
                   <h5>
                     {{step.selectedGoalNotes}}
@@ -114,6 +115,7 @@
                     {{#each shortGoal in step.shortGoals}}
                       <li>
                         {{shortGoal.content}}
+                        Due date: {{dueDate}}
                         {{input type='checkbox' class='toggle' value='isComplete'}}
                       </li>
                     {{/each}}
@@ -130,6 +132,7 @@
 
       <h2>Client Records</h2>
       {{#each}}
+
         {{#link-to 'goals.view' this class='client-link'}}
           {{name}}
         {{/link-to}}
@@ -138,6 +141,7 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/handlebars/handlebars.js"></script>
     <script src="../bower_components/ember/ember.js"></script>
