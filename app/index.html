@@ -48,7 +48,6 @@
     </script>
 
     <script type='text/x-handlebars' data-template-name='goalsCreate'>
-      <h2 class='inputGoals'>Client Form</h2>
         <div class='input-form'>
           <form>
             <div class='name-overall-goal-container'>
@@ -62,6 +61,7 @@
 
                   <div class='short-goal-input'>
                     <h3 class='sectioninfo'>Client Goal</h3>
+
                     {{#each step in steps itemController='step'}}
                       <div class='new-goal-container'>
                         {{view Ember.Select
@@ -70,10 +70,10 @@
                           optionLabelPath='content.label'
                           value=step.selectedGoalTitle
                           prompt='Select goal'
-                          class='selectGoal'
+                          class='select-goal'
                           }}
                         {{#each shortGoal in step.shortGoals}}
-                            {{input type='text' value=shortGoal.content placeholder='Task'}}
+                            {{input type='text' value=shortGoal.content placeholder='Task title'}}
                             <div class='deadline-div'><label class='deadline'>Task Deadline: </label>
                             {{input class='date' type='date' value=shortGoal.date}}
                             {{textarea value=step.selectedGoalNotes cols='30' rows='3' placeholder='Task Notes'}}
@@ -81,8 +81,8 @@
                         {{/each}}
                       </div>
                       <div class='task-buttons'>
-                      <button class='addRequirement' {{action "addShortGoal"}}>Add Task</button>
-                      <button class='newGoalButton' {{action 'addStep'}}>Add New Goal</button>
+                      <button class='add-requirement' {{action "addShortGoal"}}>Add Task</button>
+                      <button class='new-goal-button' {{action 'addStep'}}>Add New Goal</button>
                       </div>
                     {{/each}}
 
