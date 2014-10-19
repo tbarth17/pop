@@ -71,16 +71,17 @@
                           }}
                         {{#each shortGoal in step.shortGoals}}
                             {{input type='text' value=shortGoal.content placeholder='Task'}}
-                            <label class='deadline'>Deadline: </label>
-                            {{input type='date' value=shortGoal.date}}
+                            <div class='deadline-div'><label class='deadline'>Task Deadline: </label>
+                            {{input class='date' type='date' value=shortGoal.date}}
+                            {{textarea value=step.selectedGoalNotes cols='30' rows='3' placeholder='Task Notes'}}
+                            </div>
                         {{/each}}
-                      {{textarea value=step.selectedGoalNotes cols='30' rows='3' placeholder='Task Notes'}}
-                      <button class='addRequirement' {{action "addShortGoal"}}>Add Task</button>
-                    <button class='newGoalButton' {{action 'addStep'}}>Add New Goal</button>
                       </div>
-
+                      <div class='task-buttons'>
+                      <button class='addRequirement' {{action "addShortGoal"}}>Add Task</button>
+                      <button class='newGoalButton' {{action 'addStep'}}>Add New Goal</button>
+                      </div>
                     {{/each}}
-                  </div>
 
             <button class='submitButton' {{action 'createGoal'}}>Submit</button>
           </form>
@@ -106,22 +107,22 @@
               {{#each step in model.steps}}
                 <div class='monthly-goals'>
                   <h4>
-                    {{step.selectedGoalTitle}}
                     {{input type='checkbox' class='toggle' value='isComplete'}}
+                    {{step.selectedGoalTitle}}
                   </h4>
                   <h5>
                     {{step.selectedGoalNotes}}
                   </h5>
                     {{#each shortGoal in step.shortGoals}}
                       <li>
+                        {{input type='checkbox' class='toggle' value='isComplete'}}
                         {{shortGoal.content}}
                         Due date: {{dueDate}}
-                        {{input type='checkbox' class='toggle' value='isComplete'}}
                       </li>
                     {{/each}}
                 </div>
               {{/each}}
-              <button {{action 'updateRequirements'}}>Submit</button>
+              <button class='buttontown' {{action 'updateRequirements'}}>Submit</button>
             </form>
 
           </div>

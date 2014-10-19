@@ -83,10 +83,9 @@ header {
     font-size: 1.5em;
     display: block;
     margin-bottom: 15px;
-    border-bottom: 1px solid RGBA(204, 204, 204, 1);
+    border-bottom: 1px solid RGBA(204, 204, 204, 0.5);
     width: 30%;
     margin-left: 250px;
-
   }
 }
 
@@ -163,18 +162,26 @@ padding: 10px;
     color: HSLA(0, 0%, 66%, 1);
     border-radius: 0;
   }
+}
 
-  .newGoalButton {
+.task-buttons{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-radius:5px;
-    background-color: white;
-    margin: 10px;
+    margin: 0;
+    margin-bottom: 15px;
+    margin-left: em(55px);
     font-size: 1.3em;
     color: HSLA(189, 90%, 30%, 1);
+    position:absolute;
+    bottom: 0;
+
+
+    .addRequirement {
+
+    }
   }
-}
+
 .submitButton {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -186,8 +193,8 @@ padding: 10px;
     color: HSLA(189, 90%, 30%, 1);
     float: right;
     width: 200px;
-    margin-right: 0;
 }
+
 
 .goals-view-container {
   @include outer-container;
@@ -199,31 +206,73 @@ padding: 10px;
 
   h2 {
     @include shift(0.5);
+    margin-bottom: 5px;
+    margin-top: 25px;
   }
 
   .overall-goal {
     @include shift(0.5);
     @include span-columns(11);
+    padding: 15px;
+    background-color: HSLA(0, 0%, 100%, 0.5);
+    border-radius:5px;
+
+
+     p {
+      @include shift(0.3);
+      margin-top: 0;
+      }
+
+      h4 {
+        margin-bottom: 5px;
+        padding: 5px 0;
+        margin-top: 0;
+      }
   }
 
   .monthly-goals-container {
     @include shift(0.5);
     @include span-columns(11); 
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: HSLA(0, 0%, 100%, 0.5);
+    border-radius:5px;
   }
 }
 
+.monthly-goals {
+
+  h5 {
+  }
+
+  li{
+    list-style:none;
+  }
+}
+
+.buttontown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    background-color: white;
+    color: HSLA(189, 90%, 30%, 1);
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-top: 20px;
+  }
+
 .deadline {
+  float:left;
   @include shift(1);
 }
 
-.overall-goal {
-  border: 1px solid green;
+.date {
+  color: RGBA(169, 169, 169, 1);
+}
 
-  p {
-    @include shift(0.5);
-  }
-
-  h4 {
-
+.deadline-div {
+  input {
   }
 }
