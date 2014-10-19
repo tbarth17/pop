@@ -5,7 +5,8 @@ Pop.GoalsCreateController = Ember.Controller.extend({
   {label: 'Skill Building', value: 'Skill Building'},
   {label: 'Brainstorming', value: 'Brainstorming'},
   {label: 'Prototyping', value: 'Prototyping'},
-  {label: 'Customer Development', value: 'Customer Development'}
+  {label: 'Customer Development', value: 'Customer Development'},
+  {label: 'Business Development', value: 'Business Development'}
   ],
 
   actions: {
