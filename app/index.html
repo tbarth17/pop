@@ -25,7 +25,7 @@
 
     <script type='text/x-handlebars' data-template-name='application'>
       <header>
-        <h1>People Of Promise</h1>
+        <img class='logo' src = '../images/POP-logo.png'/>
       </header>
 
       <div class='wrapper'>
@@ -33,7 +33,6 @@
           <ul class='sidebar-list'>
             <li>{{#link-to 'goalsCreate'}}Create Goals Record{{/link-to}}</li>
             <li>{{#link-to 'clientsView'}}View Clients{{/link-to}}</li>
-
           </ul>
         </div>
 
@@ -46,19 +45,20 @@
     </script>
 
     <script type='text/x-handlebars' data-template-name='goalsCreate'>
-      <h2>Input Goals</h2>
+      <h2 class='inputGoals'>Client Form</h2>
         <div class='input-form'>
           <form>
             <div class='name-overall-goal-container'>
-
+              <h3 class='sectioninfo'>Client Info</h3>
               {{input type="text" value=name placeholder='Name'}}
-              {{textarea value=backStory cols="30" rows="6" placeholder="Enter client's backstory"}}
-              {{textarea value=skillSet cols="30" rows="6" placeholder="Enter client's skillset"}}
-              {{textarea value=passion cols="30" rows="6" placeholder="Enter client's passion"}}
-              {{textarea value=marketNeeds cols="30" rows="6" placeholder='Enter market needs'}}
+              {{textarea value=backStory cols="30" rows="3" placeholder="Enter client's backstory"}}
+              {{textarea value=skillSet cols="30" rows="3" placeholder="Enter client's skillset"}}
+              {{textarea value=passion cols="30" rows="3" placeholder="Enter client's passion"}}
+              {{textarea value=marketNeeds cols="30" rows="3" placeholder='Enter market needs'}}
             </div>
 
                   <div class='short-goal-input'>
+                    <h3 class='sectioninfo'>Client Goal</h3>
                     {{#each step in steps itemController='step'}}
                       <div class='new-goal-container'>
                         {{view Ember.Select
