@@ -123,6 +123,7 @@
                   <h4>
                     Tasks
                   </h4>
+                  <div class='task-wrapper'>
                     {{#each shortGoal in step.shortGoals}}
                       <li>
                         {{input type='checkbox' class='toggle' value='isComplete'}}
@@ -132,9 +133,10 @@
                         Due date: {{dueDate}}
                       </li>
                     {{/each}}
+                  </div>
                 </div>
               {{/each}}
-              <button class='buttontown' {{action 'updateRequirements'}}>Submit</button>
+              <button class='update-button' {{action 'updateRequirements'}}>Submit</button>
             </form>
 
           </div>
