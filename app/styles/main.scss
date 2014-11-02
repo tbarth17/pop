@@ -2,28 +2,35 @@
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
+$primary-white: RGBA(255, 255, 255, 1);
+$primary-black: RGBA(0, 0, 0, 1);
+$primary-light-grey: RGBA(204, 204, 204, 1);
+$primary-blue: RGBA(7, 125, 145, 1);
+$darkgrey: RGBA(157, 157, 157, 1);
+
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radisu: $radius;
+  border-radius: $radius;
+}
+
 // Custom Styles
 body {
-  background: #9d9d9d;
+  background: $darkgrey;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 110%;
+  font-size: 100%;
 }
 
 header {
   height: 250px;
-  background: HSLA(189, 90%, 30%, 1);
+  background: $primary-blue;
   text-align: center;
 
   .logo {
     width: 40%;
     margin: 0;
     margin-top: 20px;
-  }
-
-  h1 {
-    text-align: center;
-    margin: 0;
-    color: white;
   }
 }
 
@@ -33,13 +40,14 @@ header {
   height: 100%;
 
   h1 {
-    color: black;
+    color: $primary-black;
   }
 }
 
 .sidebar {
-  background: #cccccc;
+  background: $primary-light-grey;
   @include span-columns(2);
+  @include border-radius(5px);
   height: 100%;
   min-height: 2000px;
   float: left;
@@ -53,23 +61,22 @@ header {
     padding-top: 30px;
   }
 
-
   a {
     text-decoration: none;
-    color: RGBA(8, 126, 146, 1);
+    color: $primary-blue;
     font-size: 1.5em;
     display: block;
     margin-bottom: 15px;
     padding: 20px;
-    border-bottom: 1px solid RGBA(157, 157, 157, 1);
+    border-bottom: 1px solid $darkgrey;
     text-align: center;
   }
 }
 
 .login {
-  background-color: HSLA(0, 0%, 80%, 1);
+  background-color: $primary-light-grey;
   @include span-columns(6);
-  border-radius:5px;
+  @include border-radius(5px);
   padding-top:10px;
   padding-bottom:10px;
 
@@ -82,24 +89,24 @@ header {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    @include border-radius(5px);
     display: inline-block;
-    background-color: white;
-    color: HSLA(189, 90%, 30%, 1);
-    border-radius: 5px;
+    background-color: $primary-white;
+    color: $primary-blue;
     font-size: 1.2em;
     margin-top: 10px;
   }
 }
 
 .logOut {
-  position: absolute;
-  right: 10px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: white;
-  color: HSLA(189, 90%, 30%, 1);
-  border-radius: 5px;
+  @include border-radius(5px);
+  position: absolute;
+  right: 10px;
+  background-color: $primary-white;
+  color: $primary-blue;
   font-size: 1.2em;
 }
 
@@ -119,14 +126,16 @@ header {
   border: none;
 
   .client-link {
+    @include border-radius(5px);
     text-decoration: none;
-    color: RGBA(8, 126, 146, 1);
+    color: $primary-blue;
+    background: $primary-light-grey;
     font-size: 1.5em;
     display: block;
-    margin-bottom: 15px;
-    border-bottom: 1px solid RGBA(204, 204, 204, 0.5);
     width: 30%;
+    margin-bottom: 15px;
     margin-left: 250px;
+    padding: 10px;
   }
 }
 
@@ -153,32 +162,32 @@ header {
 }
 
 .name-overall-goal-container {
-@include span-columns(14);
-background-color: HSLA(0, 0%, 80%, 1);
-border-radius: 5px;
-margin-bottom: 10px;
-padding: 10px;
+  @include span-columns(14);
+  @include border-radius(5px);
+  background-color: $primary-light-grey;
+  margin-bottom: 10px;
+  padding: 10px;
 
   textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: HSLA(0, 0%, 45%, 1);
+  border: 1px solid $primary-light-grey;
   }
 }
 
 .short-goal-input {
   @include span-columns(14);
-  background: HSLA(0, 0%, 80%, 1);
-  border-radius: 5px;
+  @include border-radius(5px);
+  background: $primary-light-grey;
 }
 
 .new-goal-container {
   padding-top:5px;
   margin-top: 0;
   @include outer-container;
-  border-bottom: 1px solid RGBA(157, 157, 157, 1);
-  border-top: 1px solid RGBA(157, 157, 157, 1);
+  border-bottom: 2px solid $darkgrey;
+  border-top: 2px solid $darkgrey;
 
 
   .add-requirement {
@@ -186,9 +195,9 @@ padding: 10px;
     -moz-appearance: none;
     appearance: none;
     display: inline-block;
-    background-color: white;
-    color: HSLA(189, 90%, 30%, 1);
-    border-radius: 5px;
+    background-color: $primary-white;
+    color: $primary-blue;
+    @include border-radius(5px);
     font-size: 1.2em;
   }
 
@@ -198,11 +207,11 @@ padding: 10px;
     appearance: none;
     @include span-columns(10);
     @include shift(1);
+    @include border-radius (0);
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 1.3em;
-    color: HSLA(0, 0%, 66%, 1);
-    border-radius: 0;
+    color: $darkgrey;
   }
 }
 
@@ -214,7 +223,7 @@ padding: 10px;
     margin-bottom: 15px;
     margin-left: em(55px);
     font-size: 1.3em;
-    color: HSLA(189, 90%, 30%, 1);
+    color: $primary-blue;
     position:absolute;
     bottom: 0;
   }
@@ -223,11 +232,11 @@ padding: 10px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-radius:5px;
-    background-color: white;
+    @include border-radius (5px);
+    background-color: $primary-white;
     margin: 10px;
     font-size: 1.3em;
-    color: HSLA(189, 90%, 30%, 1);
+    color: $primary-blue;
     float: right;
     width: 200px;
 }
@@ -236,9 +245,8 @@ padding: 10px;
 .goals-view-container {
   @include outer-container;
   @include span-columns(9.5);
-  // @include shift(1);
-  background-color: RGBA(204, 204, 204, 1);
-  border-radius: 5px;
+  @include border-radius(5px);
+  background-color: $primary-light-grey;
   margin-right:0;
 
   h2 {
@@ -250,36 +258,43 @@ padding: 10px;
   .overall-goal {
     @include shift(0.5);
     @include span-columns(11);
+    @include border-radius(5px);
     padding: 15px;
-    background-color: HSLA(0, 0%, 100%, 0.5);
-    border-radius:5px;
-
+    background-color: $primary-white;
 
      p {
       @include shift(0.3);
-      margin-top: 0;
+      margin: 0;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-left: 1px solid $darkgrey;
+      border-right: 1px solid $darkgrey;
+      border-bottom: 1px solid $darkgrey;
       }
 
       h4 {
-        margin-bottom: 5px;
-        padding: 5px 0;
+        @include border-radius(5px 5px 0px 0px);
+        margin-bottom: 0;
+        padding: 5px;
         margin-top: 0;
+        background:$primary-light-grey;
+        border-bottom: 1px solid $darkgrey;
       }
   }
 
   .monthly-goals-container {
     @include shift(0.5);
     @include span-columns(11);
+    @include border-radius(5px);
     margin-top: 25px;
     margin-bottom: 25px;
     padding: 15px;
-    background-color: HSLA(0, 0%, 100%, 0.5);
-    border-radius:5px;
+    background-color: $primary-white;
   }
 }
 
 .monthly-goals {
-  border-bottom: 1px solid RGBA(157, 157, 157, 1);
+  border-bottom: 1px solid $darkgrey;
   padding-bottom: 10px;
 
   .goal-notes {
@@ -287,8 +302,28 @@ padding: 10px;
   }
 
   h4 {
-    margin-bottom: 5px;
-    border-bottom: 1px solid RGBA(157, 157, 157, 1);
+    @include border-radius(5px 5px 0px 0px);    
+    padding: 5px;
+    margin-bottom: 0;
+    border-bottom: 1px solid $darkgrey;
+    background: $primary-light-grey;
+  }
+
+  .goal-notes {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-left: 1px solid $darkgrey;
+    border-right: 1px solid $darkgrey;
+    border-bottom: 1px solid $darkgrey;
+  }
+  .task-wrapper {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-left: 1px solid $darkgrey;
+    border-right: 1px solid $darkgrey;
+    border-bottom: 1px solid $darkgrey;
   }
 
   li{
@@ -296,20 +331,19 @@ padding: 10px;
   }
 
   li:nth-child(even){
-    // border-bottom: 1px solid HSLA(0, 0%, 62%, 1);
     margin-bottom: 20px;
     padding-left: 20px;
   }
 }
 
-.buttontown {
+.update-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    @include border-radius (5px);
     display: inline-block;
-    background-color: white;
-    color: HSLA(189, 90%, 30%, 1);
-    border-radius: 5px;
+    background-color: $primary-white;
+    color: $primary-blue;
     font-size: 1.2em;
     margin-top: 20px;
   }
@@ -320,12 +354,13 @@ padding: 10px;
 }
 
 .date {
-  color: RGBA(169, 169, 169, 1);
+  color: $darkgrey;
 }
 
 .deadline-div {
   @include outer-container;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid $primary-light-grey;
   margin-bottom: 10px;
-
 }
+
+
