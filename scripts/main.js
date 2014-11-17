@@ -5,14 +5,10 @@
 	Pop.fireRef = new Firebase("https://peopleofpromise.firebaseio.com/");
 
 	Pop.ApplicationAdapter = DS.FirebaseAdapter.extend({
-	  firebase: Pop.fireRef 
+	  firebase: Pop.fireRef
 	});
-
-	Ember.Handlebars.registerBoundHelper('dueDate', function() {
-	  return moment().format('LL');
-	});
-
 })();
+
 Pop.Goal = DS.Model.extend({
   name: DS.attr('string'),
   skillSet: DS.attr('string'),
@@ -107,11 +103,9 @@ Pop.StepController = Ember.ObjectController.extend({
 });
 
 Pop.GoalsViewController = Ember.Controller.extend({
-  actions: {
-    updateRequirements: function(){
-      
-    }
-  }
+    dueDate: function(){
+    return moment(this.get('model.date')).zone('+0000').format('MMM Do, YYYY');
+  }.property('model.date'),
 });
 
 Pop.IndexController = Ember.Controller.extend({
@@ -169,10 +163,8 @@ Pop.ClientsViewRoute = Ember.Route.extend({
   }
 });
 
-Pop.ApplicationRoute = Ember.Route.extend({
+Pop.IndexRoute = Ember.Route.extend({
     beforeModel: function() {
-        if (this.controllerFor('application').get('userID')) {
-            this.transitionTo('goals.view');
-        }
+            this.transitionTo('goalsCreate');
     }
 });
