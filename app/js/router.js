@@ -28,10 +28,8 @@ Pop.ClientsViewRoute = Ember.Route.extend({
   }
 });
 
-Pop.ApplicationRoute = Ember.Route.extend({
+Pop.IndexRoute = Ember.Route.extend({
     beforeModel: function() {
-        if (this.controllerFor('application').get('userID')) {
-            this.transitionTo('goals.view');
-        }
+            this.transitionTo('goalsCreate');
     }
 });

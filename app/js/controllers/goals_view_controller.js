@@ -1,7 +1,5 @@
 Pop.GoalsViewController = Ember.Controller.extend({
-  actions: {
-    updateRequirements: function(){
-      
-    }
-  }
+    dueDate: function(){
+    return moment(this.get('model.date')).zone('+0000').format('MMM Do, YYYY');
+  }.property('model.date'),
 });
