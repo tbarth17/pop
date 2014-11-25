@@ -1,3 +1,1 @@
-## Yo, I'm a Readme
-
-You should probably update me so people looking at your code have an idea what it is being used for :)
+This is one of two applications that I built in 50 hours during Startup Weekend Greenville as part of a three person development team. It is a progress tracking application for use by non-profit organizations to track their clients' progress in creating and executing a business plan. It is built in Emberjs with Ember-data and a Firebase back-end. I handled the functionality and data modeling of the application. It is designed for desktop and tablet and incorporates fluid design with the Bourbon Neat framework.
